@@ -1,20 +1,27 @@
 package persistencia;
 
 import java.util.ArrayList;
-import modelos.Cliente;
+import classes.cliente;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import classes.pessoaPrincipal;
 
-public class ClienteDao implements iClienteDao {
+public class clienteDao extends pessoaPrincipal implements iClienteDao {
 
     private String nomeDoArquivoNoDisco = "Cliente.txt";
 
+    public clienteDao() {
+    }
+    public clienteDao(String nomeCompleto, String telefone, String email, String CPF, long CEP, String logradouro, String bairro, String quadra, String lote) throws Exception {
+        super(nomeCompleto, telefone, email, CPF, CEP, logradouro, bairro, quadra, lote);
+    }
+
     @Override
-    public void incluir(Cliente objeto) throws Exception {
+    public void incluir(cliente objeto) throws Exception {
         try {
             int id = GeradorIdentificador.getID();
             objeto.setId(id);
@@ -29,7 +36,7 @@ public class ClienteDao implements iClienteDao {
     }
 
     @Override
-    public void alterar(Cliente objeto, int id) throws Exception {
+    public void alterar(cliente objeto, int id) throws Exception {
 
         excluir(id);
         incluir(objeto);
@@ -39,8 +46,8 @@ public class ClienteDao implements iClienteDao {
     @Override
     public void excluir(int id) throws Exception {
         try {
-            ArrayList<Cliente> listaDeclientes = null;
-            listaDeclientes = obterClientes();
+            ArrayList<cliente> listaDeclientes = null;
+            listaDeclientes = obterclientes();
             FileWriter fw = new FileWriter(nomeDoArquivoNoDisco);
             BufferedWriter bw = new BufferedWriter(fw);
             for (int i = 0; i < listaDeclientes.size(); i++) {
@@ -58,19 +65,19 @@ public class ClienteDao implements iClienteDao {
     }
 
     @Override
-    public Cliente consultar(int id) throws Exception {
+    public cliente consultar(int id) throws Exception {
         try {
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br = new BufferedReader(fr);
             String linha = "";
             while ((linha = br.readLine()) != null) {
-                Cliente objCliente = new Cliente();
+                cliente objCliente = new cliente();
                 String vetorString[] = linha.split(";");
                 if (vetorString.length != 5) {
                     throw new Exception("Faltam dados na String");
                 }
                 objCliente.setId(Integer.parseInt(vetorString[0]));
-                objCliente.setNomeCompleto(vetorString[1]);
+                objCliente.setnomeCompleto(vetorString[1]);
                 objCliente.setTelefone(Integer.parseInt(vetorString[2]));
                 objCliente.setEmail(vetorString[3]);
                 objCliente.setEndereco(vetorString[4]);
@@ -87,15 +94,15 @@ public class ClienteDao implements iClienteDao {
     }
 
     @Override
-    public ArrayList<Cliente> obterClientes() throws Exception {
+    public ArrayList<cliente> obterclientes() throws Exception {
         try {
-            ArrayList<Cliente> listaDeclientes = new ArrayList<Cliente>();
+            ArrayList<cliente> listaDeclientes = new ArrayList<cliente>();
             FileReader fr = new FileReader(nomeDoArquivoNoDisco);
             BufferedReader br = new BufferedReader(fr);
             String linha = "";
 
             while ((linha = br.readLine()) != null) {
-                Cliente obCliente = new Cliente();
+                cliente obCliente = new cliente();
                 String vetorString[] = linha.split(";");
                 if (vetorString.length != 5) {
                     throw new Exception("Faltam dados na String");
@@ -112,6 +119,11 @@ public class ClienteDao implements iClienteDao {
         } catch (Exception erro) {
             throw erro;
         }
+    }
+
+    @Override
+    public ArrayList<cliente> obterClientes() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

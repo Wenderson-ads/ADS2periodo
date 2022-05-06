@@ -5,7 +5,7 @@
 package persistencia;
 
 import java.util.ArrayList;
-import modelos.Cliente;
+import classes.cliente;
 
 /**
  *
@@ -13,10 +13,10 @@ import modelos.Cliente;
  */
 public interface iClienteDao {
 
-    void incluir(Cliente objeto) throws Exception;
-    void alterar(Cliente objeto,int id) throws Exception;
-    Cliente consultar(int id) throws Exception;
+    void incluir(cliente objeto) throws Exception;
+    void alterar(cliente objeto,int id) throws Exception;
+    cliente consultar(int id) throws Exception;
     void excluir(int id) throws Exception;
-    ArrayList<Cliente> obterClientes()throws Exception;
+    ArrayList<cliente> obterClientes()throws Exception;
 
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoid;
+package persistencia;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,20 +19,23 @@ import java.io.IOException;
 public class GeradorIdentificador {
    
     public static int getID()throws FileNotFoundException, IOException{
-        String nomeDoArquivo ="Cliente.txt";
+        String nomeDoArquivo ="idGerador.txt";
         FileReader fr = new FileReader(nomeDoArquivo);
         BufferedReader br  = new BufferedReader(fr);
-        String linha=br.readLine();
+        String linha = br.readLine();
         int id = Integer.parseInt(linha);
         br.close();
         id++;
+       
         //cria o arquivo
-        FileWriter fw = new FileWriter(nomeDoArquivo);
-        //Criar o buffer do arquivo
+        FileWriter fw = new FileWriter(nomeDoArquivo,false);
         
+        //Criar o buffer do arquivo
         BufferedWriter bw =new BufferedWriter(fw);
+        
         //Escreve no arquivo
         String saida = id+"";
+        
         bw.write(saida);
         //fecha o arquivo
         bw.close();	
