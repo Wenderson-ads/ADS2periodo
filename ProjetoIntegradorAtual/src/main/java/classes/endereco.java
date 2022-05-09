@@ -9,5 +9,5 @@ package classes;
  * @author ALUNO
  */
 public class endereco {
-    
+  private String logradouro;  
 }
