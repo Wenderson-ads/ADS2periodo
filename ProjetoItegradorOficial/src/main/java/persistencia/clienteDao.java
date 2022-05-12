@@ -77,7 +77,7 @@ public class clienteDao extends pessoaPrincipal implements iClienteDao {
                     throw new Exception("Faltam dados na String");
                 }
                 objCliente.setId(Integer.parseInt(vetorString[0]));
-                objCliente.setnomeCompleto(vetorString[1]);
+                objCliente.setNomeCompleto(vetorString[1]);
                 objCliente.setTelefone(Integer.parseInt(vetorString[2]));
                 objCliente.setEmail(vetorString[3]);
                 objCliente.setEndereco(vetorString[4]);

@@ -32,7 +32,10 @@ public class ClienteDao implements iClienteDao {
     public void alterar(Cliente objeto, int id) throws Exception {
 
         excluir(id);
-        incluir(objeto);
+        FileWriter fw = new FileWriter(nomeDoArquivoNoDisco, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(objeto.toString() + "\n");
+        bw.close();
 
     }
 

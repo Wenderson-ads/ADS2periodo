@@ -5,6 +5,7 @@
 package classes;
 
 import classes.*;
+import enumeradores.tiposTelefone;
 import javax.swing.JOptionPane;
 
 /**
@@ -96,15 +97,11 @@ public class teste extends javax.swing.JFrame {
 
             //teste.setDDD(Integer.parseInt(jTextField1.getText()));
             teste.setNumero(Integer.parseInt(jTextField1.getText()));
-            
-            
-            
-            saida = teste.getDDD() + "\n";
+            teste.setTipo(tiposTelefone.RESIDENCIAL);
+
+            saida = teste.getTipo() + "\n";
             saida = teste.getNumero() + "\n";
-            
-            
-            
-            
+
             jTextArea1.setText(saida);
 
         } catch (Exception erro) {
