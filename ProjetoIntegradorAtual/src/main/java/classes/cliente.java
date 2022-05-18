@@ -2,6 +2,7 @@ package classes;
 
 import enumeradores.*;
 import classes.*;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,15 +19,17 @@ public class cliente {
 
     public cliente() {
     }
-    public cliente(telefone telefone, int ID, endereco endereco, String email, tipoCliente tipoCliente, String CPF_CNPJ, Date dataNascimento, String razaoSocial) {
+
+    public cliente(telefone telefone, int ID, endereco endereco, String email, tipoCliente tipoCliente, String CPF_CNPJ, String dataNascimento, String razaoSocial) throws Exception {
         this.telefone = telefone;
         this.ID = ID;
         this.endereco = endereco;
         this.email = email;
         this.tipoCliente = tipoCliente;
         this.CPF_CNPJ = CPF_CNPJ;
-        this.dataNascimento = dataNascimento;
+        setDataNascimento(dataNascimento);
         this.razaoSocial = razaoSocial;
+
     }
 
     public telefone getTelefone() {
@@ -81,8 +84,12 @@ public class cliente {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataNascimento(String dataNascimento) throws Exception {
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataFormatada = dateFormat.parse(dataNascimento);
+
+        this.dataNascimento = dataFormatada;
     }
 
     public String getRazaoSocial() {
@@ -95,7 +102,7 @@ public class cliente {
 
     @Override
     public String toString() {
-        return "cliente{" + "telefone=" + telefone + ", ID=" + ID + ", endereco=" + endereco + ", email=" + email + ", tipoCliente=" + tipoCliente + ", CPF_CNPJ=" + CPF_CNPJ + ", dataNascimento=" + dataNascimento + ", razaoSocial=" + razaoSocial + '}';
+        return telefone + ";" + ID + ";" + endereco + ";" + email + ";" + tipoCliente + ";" + CPF_CNPJ + ";" + new SimpleDateFormat("dd/MM/yyyy").format(dataNascimento) + ";" + razaoSocial;
     }
 
 }

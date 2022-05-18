@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistencia;
+package Ppersistencia;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,28 +17,29 @@ import java.io.IOException;
  * @author eugeniojulio"
  */
 public class GeradorIdentificador {
-   
-    public static int getID()throws FileNotFoundException, IOException{
-        String nomeDoArquivo ="idGerador.txt";
+
+    public static int getID() throws FileNotFoundException, IOException {
+
+        String nomeDoArquivo = "IDGerador.txt";
         FileReader fr = new FileReader(nomeDoArquivo);
-        BufferedReader br  = new BufferedReader(fr);
+        BufferedReader br = new BufferedReader(fr);
         String linha = br.readLine();
         int id = Integer.parseInt(linha);
         br.close();
         id++;
-       
+
         //cria o arquivo
-        FileWriter fw = new FileWriter(nomeDoArquivo,false);
-        
+        FileWriter fw = new FileWriter(nomeDoArquivo, false);
+
         //Criar o buffer do arquivo
-        BufferedWriter bw =new BufferedWriter(fw);
-        
+        BufferedWriter bw = new BufferedWriter(fw);
+
         //Escreve no arquivo
-        String saida = id+"";
-        
+        String saida = id + "";
+
         bw.write(saida);
         //fecha o arquivo
-        bw.close();	
+        bw.close();
         return id;
     }
     /*public void finalize() throws IOException{
@@ -52,5 +53,5 @@ public class GeradorIdentificador {
          //fecha o arquivo
          bw.close();		
     }*/
-    
+
 }

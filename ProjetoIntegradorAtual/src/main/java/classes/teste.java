@@ -4,8 +4,14 @@
  */
 package classes;
 
+import Ppersistencia.ClienteDao;
+import Ppersistencia.iClienteDao;
 import classes.*;
+import enumeradores.tipoCliente;
+import enumeradores.tipoLogradouro;
 import enumeradores.tiposTelefone;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,8 +42,6 @@ public class teste extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,34 +56,22 @@ public class teste extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel1.setText("testeNumero");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(157, 157, 157)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -90,23 +82,41 @@ public class teste extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
+            ClienteDao teste = new ClienteDao();
 
-            telefone teste = new telefone();
+            Date dataAtual = new Date();
 
-            String saida = "";
+            endereco testeEndereco = new endereco("Rua 10 Q 20", 255, "Vila Nova", "casa 2", "Goiania", "GO", 74703010, tipoLogradouro.RUA);
+            telefone testeTelefone = new telefone("62985738612", tiposTelefone.CELULAR);
 
-            //teste.setDDD(Integer.parseInt(jTextField1.getText()));
-            teste.setNumero(Integer.parseInt(jTextField1.getText()));
-            teste.setTipo(tiposTelefone.RESIDENCIAL);
+            cliente a1 = new cliente(testeTelefone, 1, testeEndereco, "WENDERSONGPI@", tipoCliente.PESSOAFISICA, "06523244105", "12/07/1998", "Social");
+            cliente a2 = new cliente(testeTelefone, 2, testeEndereco, "darvintrac@", tipoCliente.PESSOAFISICA, "05911668106", "09/10/2000", "cadastroTeste");
+            cliente a3 = new cliente(testeTelefone, 3, testeEndereco, "Nathan!@", tipoCliente.PESSOAJURIDICA, "05911668106", "09/10/2000", "Razão");
+            cliente a4 = new cliente(testeTelefone, 4, testeEndereco, "Lucas@", tipoCliente.PESSOAJURIDICA, "05911668166", "10/01/2005", "Razão");
+            cliente testeAlterar = new cliente(testeTelefone, 52, testeEndereco, "shvashjsfhsfhsvhjsvhjhj@", tipoCliente.PESSOAJURIDICA, "055131456561", "09/10/2000", "cadastrocliante3");
 
-            saida = teste.getTipo() + "\n";
-            saida = teste.getNumero() + "\n";
-
-            jTextArea1.setText(saida);
+//            teste.incluir(a1);
+//            teste.incluir(a2);
+//            teste.incluir(a3);
+//            teste.incluir(a4);
+//            ArrayList<cliente> listaDeClientes = null;
+//            listaDeClientes = teste.obterClientes();
+//            String saida = "Lista de Clientes" + "\n";
+//
+//            for (int i = 0; i < listaDeClientes.size(); i++) {
+//
+//                saida += "\n" + listaDeClientes.get(i).toString();
+//
+//            }
+            //teste.alterar(testeAlterar, 52);
+            teste.excluir(52);
+//            jTextArea1.setText(saida);
 
         } catch (Exception erro) {
 
             JOptionPane.showMessageDialog(this, erro);
+            erro.printStackTrace();
+
         }
 
 
@@ -151,9 +161,7 @@ public class teste extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

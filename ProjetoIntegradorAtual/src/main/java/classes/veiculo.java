@@ -19,7 +19,6 @@ public class veiculo {
 
     public veiculo() {
     }
-
     public veiculo(int ID, String placa, String renavam, tipoModeloVeiculo tipo) {
         this.ID = ID;
         this.placa = placa;
@@ -61,7 +60,7 @@ public class veiculo {
 
     @Override
     public String toString() {
-        return super.toString() + "veiculo{" + "ID=" + ID + ", placa=" + placa + ", renavam=" + renavam + ", tipo=" + tipo + '}';
+        return ID + "," + placa + "," + renavam + "," + tipo;
     }
 
 }

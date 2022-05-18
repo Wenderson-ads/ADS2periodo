@@ -2,7 +2,7 @@ package classes;
 
 import enumeradores.*;
 
-public class modelo extends marca {
+public class modelo {
 
     private int id;
     private String descricao;
@@ -11,7 +11,6 @@ public class modelo extends marca {
 
     public modelo() {
     }
-
     public modelo(int id, String descricao, int anoFabricacao, int anoModelo) {
         this.id = id;
         this.descricao = descricao;
@@ -53,7 +52,7 @@ public class modelo extends marca {
 
     @Override
     public String toString() {
-        return super.toString() + "modelo{" + "id=" + id + ", descricao=" + descricao + ", anoFabricacao=" + anoFabricacao + ", anoModelo=" + anoModelo + '}';
+        return id + "," + descricao + "," + anoFabricacao + "," + anoModelo;
     }
 
 }

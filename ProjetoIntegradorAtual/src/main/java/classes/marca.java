@@ -8,7 +8,6 @@ public class marca {
 
     public marca() {
     }
-
     public marca(String descricao, String logo, int id) {
         this.descricao = descricao;
         this.logo = logo;
@@ -41,7 +40,7 @@ public class marca {
 
     @Override
     public String toString() {
-        return "marca{" + "descricao=" + descricao + ", logo=" + logo + ", id=" + id + '}';
+        return descricao + "," + logo + "," + id;
     }
 
 }
