@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ppersistencia;
+package persistenciaVeiculo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,11 +16,11 @@ import java.io.IOException;
  *
  * @author eugeniojulio"
  */
-public class GeradorIdentificador {
+public class GeradorIdentificadorVeiculo {
 
     public static int getID() throws FileNotFoundException, IOException {
 
-        String nomeDoArquivo = "IDGerador.txt";
+        String nomeDoArquivo = "IDGeradorVeiculo.txt";
         FileReader fr = new FileReader(nomeDoArquivo);
         BufferedReader br = new BufferedReader(fr);
         String linha = br.readLine();

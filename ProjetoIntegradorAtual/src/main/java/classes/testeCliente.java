@@ -4,8 +4,8 @@
  */
 package classes;
 
-import Ppersistencia.ClienteDao;
-import Ppersistencia.iClienteDao;
+import persistenciaCliente.ClienteDao;
+import persistenciaCliente.iClienteDao;
 import classes.*;
 import enumeradores.tipoCliente;
 import enumeradores.tipoLogradouro;
@@ -18,12 +18,12 @@ import javax.swing.JOptionPane;
  *
  * @author ALUNO
  */
-public class teste extends javax.swing.JFrame {
+public class testeCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form teste
      */
-    public teste() {
+    public testeCliente() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -99,18 +99,18 @@ public class teste extends javax.swing.JFrame {
 //            teste.incluir(a2);
 //            teste.incluir(a3);
 //            teste.incluir(a4);
-//            ArrayList<cliente> listaDeClientes = null;
-//            listaDeClientes = teste.obterClientes();
-//            String saida = "Lista de Clientes" + "\n";
-//
-//            for (int i = 0; i < listaDeClientes.size(); i++) {
-//
-//                saida += "\n" + listaDeClientes.get(i).toString();
-//
-//            }
-            //teste.alterar(testeAlterar, 52);
-            teste.excluir(52);
-//            jTextArea1.setText(saida);
+            ArrayList<cliente> listaDeClientes = null;
+            listaDeClientes = teste.obterClientes();
+            String saida = "Lista de Clientes" + "\n";
+
+            for (int i = 0; i < listaDeClientes.size(); i++) {
+
+                saida += "\n" + listaDeClientes.get(i).toString();
+
+            }
+           
+            
+            jTextArea1.setText(saida);
 
         } catch (Exception erro) {
 
@@ -139,20 +139,21 @@ public class teste extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(testeCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(testeCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(testeCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(testeCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new teste().setVisible(true);
+                new testeCliente().setVisible(true);
             }
         });
     }

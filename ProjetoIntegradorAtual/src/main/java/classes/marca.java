@@ -4,22 +4,13 @@ public class marca {
 
     private String descricao;
     private String logo;
-    private int id;
 
     public marca() {
     }
-    public marca(String descricao, String logo, int id) {
+    public marca(String descricao, String logo) {
         this.descricao = descricao;
         this.logo = logo;
-        this.id = id;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescricao() {
@@ -40,7 +31,7 @@ public class marca {
 
     @Override
     public String toString() {
-        return descricao + "," + logo + "," + id;
+        return descricao + "," + logo;
     }
 
 }

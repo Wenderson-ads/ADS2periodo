@@ -4,26 +4,17 @@ import enumeradores.*;
 
 public class modelo {
 
-    private int id;
     private String descricao;
     private int anoFabricacao;
     private int anoModelo;
 
     public modelo() {
     }
-    public modelo(int id, String descricao, int anoFabricacao, int anoModelo) {
-        this.id = id;
+    public modelo(String descricao, int anoFabricacao, int anoModelo) {
+
         this.descricao = descricao;
         this.anoFabricacao = anoFabricacao;
         this.anoModelo = anoModelo;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescricao() {
@@ -52,7 +43,7 @@ public class modelo {
 
     @Override
     public String toString() {
-        return id + "," + descricao + "," + anoFabricacao + "," + anoModelo;
+        return descricao + "," + anoFabricacao + "," + anoModelo;
     }
 
 }

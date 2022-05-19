@@ -1,9 +1,8 @@
-package Ppersistencia;
+package persistenciaCliente;
 
 import classes.*;
 import enumeradores.*;
-import Ppersistencia.iClienteDao;
-//import com.sun.javafx.scene.traversal.Direction;
+import persistenciaCliente.iClienteDao;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,7 +21,7 @@ public class ClienteDao implements iClienteDao {
     public void incluir(cliente objeto) throws Exception {
 
         try {
-            int id = GeradorIdentificador.getID();
+            int id = GeradorIdentificadorCliente.getID();
             objeto.setID(id);
             FileWriter fw = new FileWriter(nomeDoArquivoNoDisco, true);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -126,22 +125,25 @@ public class ClienteDao implements iClienteDao {
     public ArrayList<cliente> obterClientes() throws Exception {
 
         ArrayList<cliente> listaCliente = new ArrayList<cliente>();
-        //ArrayList<endereco> listaEndereco = new ArrayList<endereco>();
-        //ArrayList<telefone> listaTelefone = new ArrayList<telefone>();
+     
         FileReader fr = new FileReader(nomeDoArquivoNoDisco);
         BufferedReader br = new BufferedReader(fr);
         String linha = "";
         while ((linha = br.readLine()) != null) {
+           //objetos para fazer set das classes
             cliente objetoCliente = new cliente();
+            telefone objetoTelefone = new telefone();
+            endereco objetoEndereco = new endereco();
+            // vetores para fazer set
             String vetorString[] = linha.split(";");
             String ende[] = vetorString[2].split(",");
             String tele[] = vetorString[0].split(",");
+            
             if (vetorString.length != 8) {
                 throw new Exception("Faltam dados na String");
             }
             //System.out.println(tele[0]);
-            telefone objetoTelefone = new telefone();
-            endereco objetoEndereco = new endereco();
+            
             // posicao vetor endereco
             objetoEndereco.setLogradouro(ende[0]);
             objetoEndereco.setNumero(Integer.parseInt(ende[1]));

@@ -13,14 +13,20 @@ import enumeradores.tipoModeloVeiculo;
 public class veiculo {
 
     private int ID;
+    private int idCliente;
+    private marca marcaVeiculo;
+    private modelo modeloVeiculo;
     private String placa;
     private String renavam;
     private tipoModeloVeiculo tipo;
 
     public veiculo() {
     }
-    public veiculo(int ID, String placa, String renavam, tipoModeloVeiculo tipo) {
+    public veiculo(int ID, int idCliente, marca marcaVeiculo, modelo modeloVeiculo, String placa, String renavam, tipoModeloVeiculo tipo) {
         this.ID = ID;
+        this.idCliente = idCliente;
+        this.marcaVeiculo = marcaVeiculo;
+        this.modeloVeiculo = modeloVeiculo;
         this.placa = placa;
         this.renavam = renavam;
         this.tipo = tipo;
@@ -32,6 +38,30 @@ public class veiculo {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public marca getMarcaVeiculo() {
+        return marcaVeiculo;
+    }
+
+    public void setMarcaVeiculo(marca marcaVeiculo) {
+        this.marcaVeiculo = marcaVeiculo;
+    }
+
+    public modelo getModeloVeiculo() {
+        return modeloVeiculo;
+    }
+
+    public void setModeloVeiculo(modelo modeloVeiculo) {
+        this.modeloVeiculo = modeloVeiculo;
     }
 
     public String getPlaca() {
@@ -60,7 +90,7 @@ public class veiculo {
 
     @Override
     public String toString() {
-        return ID + "," + placa + "," + renavam + "," + tipo;
+        return ID + ";" + idCliente + ";" + marcaVeiculo + ";" + modeloVeiculo + ";" + placa + ";" + renavam + ";" + tipo;
     }
 
 }
