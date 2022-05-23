@@ -9,7 +9,6 @@ import classes.cliente;
 import classes.marca;
 import classes.modelo;
 import classes.veiculo;
-import persistenciaVeiculo.iVeiculoDao;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

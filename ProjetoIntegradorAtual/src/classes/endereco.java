@@ -1,6 +1,7 @@
 package classes;
 
 import enumeradores.tipoLogradouro;
+import javax.swing.JTextField;
 
 public class endereco {
 
@@ -104,4 +105,5 @@ public class endereco {
     public String toString() {
         return logradouro + "," + numero + "," + complemento + "," + bairro + "," + estado + "," + cidade + "," + cep + "," + tipo;
     }
+
 }

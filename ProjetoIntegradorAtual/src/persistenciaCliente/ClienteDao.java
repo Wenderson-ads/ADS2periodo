@@ -2,7 +2,6 @@ package persistenciaCliente;
 
 import classes.*;
 import enumeradores.*;
-import persistenciaCliente.iClienteDao;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.Buffer;
 import java.text.DateFormat;
+import javax.swing.JFormattedTextField;
 
 public class ClienteDao implements iClienteDao {
 
@@ -75,7 +75,7 @@ public class ClienteDao implements iClienteDao {
                 objetoEndereco.setTipo(Enum.valueOf(tipoLogradouro.class, ende[7]));
 
                 // posicao vetor telefone
-                objetoTelefone.setTelefone(tele[1]);
+                objetoTelefone.setTelefone(new JFormattedTextField(tele[1]));
                 objetoTelefone.setTipo(Enum.valueOf(tiposTelefone.class, tele[0]));
                 // posicao vetor principal
                 objetoCliente.setID(Integer.parseInt(vetorString[1]));
@@ -155,7 +155,7 @@ public class ClienteDao implements iClienteDao {
             objetoEndereco.setTipo(Enum.valueOf(tipoLogradouro.class, ende[7]));
 
             // posicao vetor telefone
-            objetoTelefone.setTelefone(tele[1]);
+            objetoTelefone.setTelefone(new JFormattedTextField(tele[1]));
             objetoTelefone.setTipo(Enum.valueOf(tiposTelefone.class, tele[0]));
             // posicao vetor principal
             objetoCliente.setID(Integer.parseInt(vetorString[1]));
